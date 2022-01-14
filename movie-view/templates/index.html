@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+    <title>Deven Rathod -Free Movie Server</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js"></script>
+</head>
+
+<div class="c2">
+    <marquee><p>Made With 💙 by Deven </p></marquee>
+</div>
+<body>
+<header>
+    <div class="nav">
+        <hr/>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=+911234567890&text=please%20add%20the%20movie">Request
+                    movie</a></li>
+                <li>
+                    <a href="https://api.whatsapp.com/send?phone=+911234567890&text=want%20to%20contact%20you">Contact</a>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="upload.html">Upload Movies</a></li>
+            </ul>
+        </nav>
+        <hr/>
+    </div>
+    <h1 class="headh1">Welcome To Free Movie Server</h1>
+    <h2 class="headh1">click on Show Button to see all movies</h2>
+    <button class="nbtn" onclick="filterSelection('all')">Show</button>
+</header>
+
+<div class="cards">
+    <div class="row">
+        {% for movie in movies %}
+        <a href="/movies/{{movie.movie_id}}"></a>
+        <div class="column nature">
+            <div class="content">
+                <img src="{{movie.movie_image_url}}" style="width:100%">
+                <h4>{{movie.movie_name}}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
