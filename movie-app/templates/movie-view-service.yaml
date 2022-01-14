@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: movie-view
+  name: movie-view
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - port: {{ .Values.service.port }}
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: movie-view
+status:
+  loadBalancer: {}
