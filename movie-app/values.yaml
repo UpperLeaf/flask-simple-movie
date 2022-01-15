@@ -4,12 +4,13 @@ image:
   movieView:
     image: tkdduq8260/movie-view
     tag: "latest"
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
+    replicas: 1
   movieApi:
     image: tkdduq8260/movie-api
     tag: "latest"
-    pullPolicy: IfNotPresent
-
+    pullPolicy: Always
+    replicas: 1
 service:
   type: NodePort
   port: 80

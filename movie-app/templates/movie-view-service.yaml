@@ -3,7 +3,7 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    run: movie-view
+    app: movie-view
   name: movie-view
 spec:
   type: {{ .Values.service.type }}
@@ -12,6 +12,6 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    run: movie-view
+    app: movie-view
 status:
   loadBalancer: {}

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: movie-api-deploy
+  name: movie-api-deploy
+spec:
+  replicas: {{ .Values.image.movieApi.replicas }}
+  selector:
+    matchLabels:
+      app: movie-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: movie-api
+    spec:
+      containers:
+      - image: "{{ .Values.image.movieApi.image }}:{{ .Values.image.movieApi.tag }}"
+        name: movie-api
+        imagePullPolicy: {{ .Values.image.movieApi.pullPolicy }}
+status: {}
