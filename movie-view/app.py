@@ -9,6 +9,12 @@ def form():
   movie_list = list(movies["movies"].values())
   return render_template("index.html", movies=movie_list)
 
+@app.route("/movies/<int:movie_id>")
+def movie_info(movie_id):
+  movie_info = requests.get("http://movie-api/ns_movies/movies/" + str(movie_id)).json()
+  data = movie_info['data']
+  print(data)
+  return render_template("movie.html", movie_info=data)
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=80, debug=True)

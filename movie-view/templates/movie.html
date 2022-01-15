@@ -29,23 +29,15 @@
         </nav>
         <hr/>
     </div>
-    <h1 class="headh1">Welcome To Free Movie Server</h1>
-    <h2 class="headh1">click on Show Button to see all movies</h2>
-    <button class="nbtn" onclick="filterSelection('all')">Show</button>
 </header>
 
 <div class="cards">
-    <div class="row">
-        {% for movie in movies %}
-        <a href="/movies/{{movie.movie_id}}">
-            <div class="column nature">
-                <div class="content">
-                    <img src="{{movie.movie_image_url}}" style="width:100%">
-                    <h4>{{movie.movie_name}}</h4>
-                </div>
-            </div>
-        </a>
-        {% endfor %}
+    <h1 style="margin-top:50px; margin-bottom:50px">{{movie_info.movie_name}}</h1>
+    <div>
+        <img src="{{movie_info.movie_image_url}}" style="width: 500px; float: left; margin-left:100px">
+        <p class="c2" style="font-size:1.2em">{{movie_info.movie_description}}</p>
+        <p class="c2" style="font-size:1.2em">영화 개봉일 : {{movie_info.movie_published_at}}</p>
+        <h4 class="c2">감독 : {{movie_info.movie_director}}</h4>
     </div>
 </div>
 </body>
